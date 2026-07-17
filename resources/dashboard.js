@@ -128,8 +128,13 @@
             item.layer.setVisible(item.id === config.id);
         });
         if (window.lyr_BatasProvinsi_1) window.lyr_BatasProvinsi_1.setVisible(true);
-        if (window.lyr_BatasKabKota_2) window.lyr_BatasKabKota_2.setVisible(true);
-        if (window.lyr_BatasKecamatan_3) window.lyr_BatasKecamatan_3.setVisible(true);
+        if (window.lyr_BatasKabKota_2) window.lyr_BatasKabKota_2.setVisible(false);
+        if (window.lyr_BatasKecamatan_3) window.lyr_BatasKecamatan_3.setVisible(false);
+        Object.keys(window).forEach(function (key) {
+            if (/^lyr_BatasDesa_/i.test(key) && window[key] && window[key].setVisible) {
+                window[key].setVisible(false);
+            }
+        });
     }
 
     function renderTabs(config) {
