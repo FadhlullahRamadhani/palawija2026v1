@@ -385,19 +385,19 @@ function fnc_strpos(values, context) {
 };
 
 function fnc_left(values, context) {
-    return false;
+    return String(values[0]).substr(0, values[1]);
 };
 
 function fnc_right(values, context) {
-    return false;
+     return String(values[0]).substr(0, values[1]);
 };
 
 function fnc_rpad(values, context) {
-    return false;
+    return String(values[0]).padEnd(values[1], values[2]);
 };
 
 function fnc_lpad(values, context) {
-    return false;
+    return String(values[0]).padStart(values[1], values[2]);
 };
 
 function fnc_format(values, context) {
@@ -763,3 +763,56 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
+
+
+
+function exp_label_RekapDesa_38_eval_expression(context) {
+    // WADMKD
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return feature.get('WADMKD') ;
+    } else {
+        return feature.get('WADMKD') ;
+    }
+}
+
+
+function exp_label_RekapKecamatan_39_eval_expression(context) {
+    // WADMKC
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return feature.get('WADMKC') ;
+    } else {
+        return feature.get('WADMKC') ;
+    }
+}
+
+
+function exp_label_RekapKabKota_40_eval_expression(context) {
+    // NAMOBJ
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return feature.get('NAMOBJ') ;
+    } else {
+        return feature.get('NAMOBJ') ;
+    }
+}
+
+
+function exp_label_RekapProvinsi_41_eval_expression(context) {
+    // WADMPR
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return feature.get('WADMPR') ;
+    } else {
+        return feature.get('WADMPR') ;
+    }
+}

@@ -8,15 +8,15 @@
     ];
 
     var dashboardLayers = [
-        { id: 'provinsi', label: 'Provinsi', layer: window.lyr_RekapProvinsi_7, features: window.features_RekapProvinsi_7, nameField: 'WADMPR', maxZoom: 8 },
-        { id: 'kabkota', label: 'Kab/Kota', layer: window.lyr_RekapKabKota_6, features: window.features_RekapKabKota_6, nameField: 'WADMKK', maxZoom: 10 },
-        { id: 'kecamatan', label: 'Kecamatan', layer: window.lyr_RekapKecamatan_5, features: window.features_RekapKecamatan_5, nameField: 'WADMKC', maxZoom: 12 },
-        { id: 'desa', label: 'Desa', layer: window.lyr_RekapDesa_4, features: window.features_RekapDesa_4, nameField: 'WADMKD', maxZoom: 14 }
+        { id: 'provinsi', label: 'Provinsi', layer: window.lyr_RekapProvinsi_41, features: window.features_RekapProvinsi_41, nameField: 'WADMPR', maxZoom: 8 },
+        { id: 'kabkota', label: 'Kab/Kota', layer: window.lyr_RekapKabKota_40, features: window.features_RekapKabKota_40, nameField: 'WADMKK', maxZoom: 10 },
+        { id: 'kecamatan', label: 'Kecamatan', layer: window.lyr_RekapKecamatan_39, features: window.features_RekapKecamatan_39, nameField: 'WADMKC', maxZoom: 12 },
+        { id: 'desa', label: 'Desa', layer: window.lyr_RekapDesa_38, features: window.features_RekapDesa_38, nameField: 'WADMKD', maxZoom: 14 }
     ].filter(function (item) {
         return item.layer && item.features && item.features.length;
     });
 
-    var activeId = 'kabkota';
+    var activeId = 'provinsi';
     var searchTerm = '';
     var tabsEl = document.getElementById('dashboard-layer-tabs');
     var kpisEl = document.getElementById('dashboard-kpis');
@@ -129,7 +129,7 @@
         });
         if (window.lyr_BatasProvinsi_1) window.lyr_BatasProvinsi_1.setVisible(true);
         if (window.lyr_BatasKabKota_2) window.lyr_BatasKabKota_2.setVisible(true);
-        if (window.lyr_Indexpertanamanpalawija_3) window.lyr_Indexpertanamanpalawija_3.setVisible(true);
+        if (window.lyr_BatasKecamatan_3) window.lyr_BatasKecamatan_3.setVisible(true);
     }
 
     function renderTabs(config) {

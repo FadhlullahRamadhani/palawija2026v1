@@ -4,15 +4,15 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1
+        constrainResolution: true,
+        maxZoom: 28,
+        minZoom: 1,
+        
     })
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([11805154.804700, -881569.513713, 12202884.851045, -645831.922241], map.getSize());
-
-//full zooms only
-map.getView().setProperties({constrainResolution: true});
+map.getView().fit([10572224.777305, -1232970.419834, 15698279.243598, 677737.171012], map.getSize());
 
 //change cursor
 function pointerOnFeature(evt) {
@@ -153,7 +153,10 @@ var doHover = false;
 function createPopupField(currentFeature, currentFeatureKeys, layer) {
     var popupText = '';
     for (var i = 0; i < currentFeatureKeys.length; i++) {
-        if (currentFeatureKeys[i] != 'geometry' && currentFeatureKeys[i] != 'layerObject' && currentFeatureKeys[i] != 'idO') {
+        if (currentFeatureKeys[i] != 'geometry' &&
+            currentFeatureKeys[i] != 'layerObject' &&
+            currentFeatureKeys[i] != 'idO' &&
+            currentFeatureKeys[i] != '_mvtLayer_') {
             var popupField = '';
             if (layer.get('fieldLabels')[currentFeatureKeys[i]] == "hidden field") {
                 continue;
@@ -497,11 +500,11 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
-        titleElement.className = 'top-left-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">Peta Indeks Pertanamanan Palawija 2025-2026 di Lahan Non Sawah dan Perkebunan</h2>';
+        titleElement.className = 'top-right-title ol-control';
+        titleElement.innerHTML = '<h2 class="project-title">Peta Indeks Pertanamanan Palawija 2025-2026 di Lahan Non Sawah dan Non Perkebunan</h2>';
         return titleElement;
     })(),
-    target: 'top-left-container'
+    target: 'top-right-container'
 });
 map.addControl(Title)
     
@@ -510,7 +513,7 @@ map.addControl(Title)
 var Abstract = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
-        titleElement.className = 'bottom-left-abstract ol-control';
+        titleElement.className = 'bottom-right-abstract ol-control';
         titleElement.id = 'abstract';
 
         var linkElement = document.createElement('a');
@@ -541,7 +544,7 @@ var Abstract = new ol.control.Control({
         titleElement.appendChild(linkElement);
         return titleElement;
     })(),
-    target: 'bottom-left-container'
+    target: 'bottom-right-container'
 });
 map.addControl(Abstract);
 
